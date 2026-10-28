@@ -8,6 +8,7 @@ import { FocusCatPromo, FTOTAL_S } from "./focuscat/FocusCat";
 import { SkillPromo, TOTAL_S as SKILL_TOTAL_S } from "./skill/SkillPromo";
 import { SelfFix, SELF_TOTAL_F } from "./selffix/SelfFix";
 import { CodeEdit, CE_TOTAL_F } from "./codeedit/CodeEdit";
+import { FirstReplyComposition } from "./firstreply/Root";
 import { BgMesh, Grade, Grain, Vignette } from "./components/Layers";
 import { Hook } from "./scenes/Hook";
 import { Bio } from "./scenes/Bio";
@@ -58,6 +59,7 @@ const Promo: React.FC = () => {
 
 export const Root: React.FC = () => (
   <>
+    <FirstReplyComposition />
     <Composition
       id="HaidrrrryPromo"
       component={Promo}
