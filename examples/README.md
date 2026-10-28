@@ -7,6 +7,7 @@ Four videos built with the remotion-motion-graphics skill, in one Remotion proje
 | `HaidrrrryPromo` | 12s profile promo: spark logo sting, word reveals, staggered cards, glow CTA |
 | `FocusCatPromo` | 15.5s app promo: pixel-art mascot drawn in code (2-frame walk cycle), animated focus ring, synthesized SFX, warm ambient pad |
 | `SelfFix` | 18.5s "watch this video fix itself": one scene opens deliberately bad (linear easing, flat background, no stagger, no grade) and upgrades live as each rule stamps in |
+| `CplReel` | 30s 9:16 Turkish performance-marketing reel ("Lead başı maliyet neden tek başına yeterli değildir?"): CPL counter hook, animated funnels, A/B versus bars, connected metric cards; Turkish neural voiceover, original synthesized music bed and SFX. [MP4](videos/cpl-reel-tr.mp4) |
 | `CodeEdit` | 20s beat-synced code edit: camera inside a syntax-glow code world, zoom punches on beats, RGB-split glitch pass, 3D code-shatter finale, original 120 BPM track |
 
 Preview of `FocusCatPromo`. Click it for the MP4 with sound:
@@ -27,6 +28,10 @@ Verify the way the skill demands, by looking at extracted stills:
 ```bash
 npx remotion still src/index.ts SelfFix out/check_300.png --frame 300 --overwrite
 ```
+
+## CplReel audio
+
+`npm run audio` also writes the CplReel music bed and SFX. The Turkish voiceover clips are committed in `public/vo/`; to regenerate them, `pip install edge-tts` and run `npm run vo:cpl` (set `TTS_CA_BUNDLE` when behind a TLS-inspecting proxy). Then `npm run render:cpl`.
 
 ## Notes
 

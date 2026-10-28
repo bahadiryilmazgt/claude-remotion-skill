@@ -4,6 +4,8 @@ import { loadFont as loadDisplay } from "@remotion/google-fonts/SpaceGrotesk";
 import { loadFont as loadBody } from "@remotion/google-fonts/Inter";
 import { loadFont as loadMono } from "@remotion/google-fonts/JetBrainsMono";
 import { loadFont as loadSerif } from "@remotion/google-fonts/Fraunces";
+import { loadFont as loadJakarta } from "@remotion/google-fonts/PlusJakartaSans";
+import { CplReel, CPL_TOTAL_S } from "./cpl/CplReel";
 import { FocusCatPromo, FTOTAL_S } from "./focuscat/FocusCat";
 import { SkillPromo, TOTAL_S as SKILL_TOTAL_S } from "./skill/SkillPromo";
 import { SelfFix, SELF_TOTAL_F } from "./selffix/SelfFix";
@@ -14,10 +16,15 @@ import { Bio } from "./scenes/Bio";
 import { Ships } from "./scenes/Ships";
 import { CTA } from "./scenes/CTA";
 
-loadDisplay();
-loadBody();
-loadMono();
-loadSerif();
+// load only the weights/subsets the compositions use; loading every variant
+// of every family can time out the render
+const fontOpts = { weights: ["400", "500", "600", "700", "800"], subsets: ["latin", "latin-ext"] };
+loadDisplay("normal", { ...fontOpts, weights: ["400", "500", "600", "700"] });
+loadBody("normal", fontOpts);
+loadMono("normal", fontOpts);
+loadSerif("normal", fontOpts);
+loadSerif("italic", { weights: ["400", "600"], subsets: ["latin", "latin-ext"] });
+loadJakarta("normal", { weights: ["600", "700", "800"], subsets: ["latin", "latin-ext"] });
 
 const FPS = 30;
 
@@ -58,6 +65,14 @@ const Promo: React.FC = () => {
 
 export const Root: React.FC = () => (
   <>
+    <Composition
+      id="CplReel"
+      component={CplReel}
+      durationInFrames={Math.round(FPS * CPL_TOTAL_S)}
+      fps={FPS}
+      width={1080}
+      height={1920}
+    />
     <Composition
       id="HaidrrrryPromo"
       component={Promo}

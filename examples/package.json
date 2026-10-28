@@ -4,11 +4,13 @@
   "private": true,
   "description": "Four finished compositions built with the remotion-motion-graphics skill",
   "scripts": {
-    "audio": "node scripts/gen-sfx.mjs && node scripts/gen-track.mjs",
+    "audio": "node scripts/gen-sfx.mjs && node scripts/gen-track.mjs && node scripts/gen-cpl-audio.mjs",
+    "vo:cpl": "python3 scripts/gen-vo-tr.py",
     "studio": "remotion studio src/index.ts",
     "render:profile": "remotion render src/index.ts HaidrrrryPromo out/profile-promo.mp4 --codec h264 --crf 16",
     "render:focuscat": "remotion render src/index.ts FocusCatPromo out/focus-cat-promo.mp4 --codec h264 --crf 16",
     "render:selffix": "remotion render src/index.ts SelfFix out/self-fix.mp4 --codec h264 --crf 16",
+    "render:cpl": "remotion render src/index.ts CplReel out/cpl-reel-tr.mp4 --codec h264 --crf 16",
     "render:codeedit": "remotion render src/index.ts CodeEdit out/code-edit.mp4 --codec h264 --crf 16"
   },
   "dependencies": {
