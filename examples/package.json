@@ -5,6 +5,7 @@
   "description": "Four finished compositions built with the remotion-motion-graphics skill",
   "scripts": {
     "audio": "node scripts/gen-sfx.mjs && node scripts/gen-track.mjs",
+    "vo": "node scripts/elevenlabs.mjs",
     "studio": "remotion studio src/index.ts",
     "render:profile": "remotion render src/index.ts HaidrrrryPromo out/profile-promo.mp4 --codec h264 --crf 16",
     "render:focuscat": "remotion render src/index.ts FocusCatPromo out/focus-cat-promo.mp4 --codec h264 --crf 16",
